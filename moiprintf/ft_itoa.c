@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-static char *add_minus(int flag, char *res)
+static char	*add_minus(int flag, char *res)
 {
 	if (flag == 1)
 	{

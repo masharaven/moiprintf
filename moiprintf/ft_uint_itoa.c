@@ -1,8 +1,8 @@
 #include "ft_printf.h"
 
-static int ft_count_len(long c)
+static int	ft_count_len(long c)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (c < 0)
@@ -18,10 +18,10 @@ static int ft_count_len(long c)
 	return (len);
 }
 
-static char *ft_convert_char(char *str, long num, int len, int minus)
+static char	*ft_convert_char(char *str, long num, int len, int minus)
 {
 	if (num != 0)
-			str = (char *)malloc(sizeof(char) * (len + 1));
+		str = (char *)malloc(sizeof(char) * (len + 1));
 	else
 		return (str = ft_strdup("0"));
 	if (!str)
@@ -41,22 +41,21 @@ static char *ft_convert_char(char *str, long num, int len, int minus)
 	return (str);
 }
 
-char    *ft_uint_itoa(unsigned int c)
+char	*ft_uint_itoa(unsigned int c)
 {
-	int     len;
-	char    *put;
-	long    num;
-	int     min;
+	int		len;
+	char	*put;
+	long	num;
+	int		min;
 
 	num = c;
 	put = 0;
 	min = 0;
 	if (num < 0)
 		min++;
-	len = ft_count_len(c); //считает вместе с минусами
+	len = ft_count_len(c);
 	put = ft_convert_char(put, num, len, min);
 	if (!put)
 		return (0);
 	return (put);
-
 }

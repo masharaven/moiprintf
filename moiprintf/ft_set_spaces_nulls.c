@@ -1,9 +1,9 @@
 #include "ft_printf.h"
 
-int    ft_set_spaces_nulls(int flags, int amount, int zero)
+int	ft_set_spaces_nulls(int flags, int amount, int zero)
 {
-	int length;
-	
+	int	length;
+
 	length = 0;
 	while (flags-- - amount > 0)
 	{

@@ -2,7 +2,7 @@
 int	to_set_spacefor_min(char *s, t_flags *flags, int len)
 {
 	int	i;
-	int dot;
+	int	dot;
 
 	len = 0;
 	i = 0;
@@ -17,7 +17,7 @@ int	to_set_spacefor_min(char *s, t_flags *flags, int len)
 	return (len);
 }
 
-int    ft_string(char *str, t_flags *flags)
+int	ft_string(char *str, t_flags *flags)
 {
 	int	length;
 
@@ -29,9 +29,11 @@ int    ft_string(char *str, t_flags *flags)
 	if (flags->minus == 1)
 		length = length + to_set_spacefor_min(str, flags, length);
 	if (flags->dot >= 0)
-		length = length + ft_set_spaces_nulls(flags->width, flags->dot, flags->zero);
-	else 
-		length = length + ft_set_spaces_nulls(flags->width, ft_strlen(str), flags->zero);
+		length = length + ft_set_spaces_nulls(flags->width, flags->dot, \
+		flags->zero);
+	else
+		length = length + ft_set_spaces_nulls(flags->width, ft_strlen(str), \
+		flags->zero);
 	if (flags->minus == 0)
 		length = length + to_set_spacefor_min(str, flags, length);
 	return (length);

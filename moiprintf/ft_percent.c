@@ -1,8 +1,8 @@
 #include "ft_printf.h"
 
-int ft_percent(t_flags *flags)
+int	ft_percent(t_flags *flags)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (flags->minus == 1)

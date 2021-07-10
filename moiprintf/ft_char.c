@@ -1,8 +1,8 @@
 #include "ft_printf.h"
 
-int ft_char(char c, t_flags *flags)
+int	ft_char(char c, t_flags *flags)
 {
-	int  length;
+	int	length;
 
 	length = 0;
 	if (flags->minus == 1)

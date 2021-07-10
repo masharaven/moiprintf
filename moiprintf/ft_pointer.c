@@ -1,8 +1,8 @@
 #include "ft_printf.h"
 
-static int if_minus(t_flags *flags)
+static int	if_minus(t_flags *flags)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	len = len + ft_putstroke("0x", 2);
@@ -12,7 +12,7 @@ static int if_minus(t_flags *flags)
 
 static int	ft_pointer_minus(char *point, t_flags *flags)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	len = len + ft_putstroke("0x", 2);
@@ -26,7 +26,7 @@ static int	ft_pointer_minus(char *point, t_flags *flags)
 	return (len);
 }
 
-int ft_pointer(unsigned long long cifra, t_flags *flags)
+int	ft_pointer(unsigned long long cifra, t_flags *flags)
 {
 	int		len;
 	char	*point;

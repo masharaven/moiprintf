@@ -1,7 +1,5 @@
 #include "ft_printf.h"
 
-
-
 t_flags	*flags_zero(t_flags *flags)
 {
 	flags->zero = 0;
@@ -51,10 +49,8 @@ static int	parse_input(va_list	args, const char	*tutochki, t_flags *flags)
 	return (length);
 }
 
-
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-
 	va_list		args;
 	int			length;
 	t_flags		*flags;
@@ -62,7 +58,7 @@ int ft_printf(const char *format, ...)
 	length = 0;
 	flags = (t_flags *)malloc(sizeof(t_flags));
 	flags_zero(flags);
-	va_start(args, format); // argumemts that we have to add instead of %dcuixX an so on...
+	va_start(args, format);
 	length = length + parse_input(args, format, flags);
 	va_end(args);
 	free(flags);

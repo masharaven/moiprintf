@@ -16,7 +16,7 @@ static int	ft_dot(const char *format, int i, t_flags *flags, va_list args)
 	return (i);
 }
 
-static t_flags	*ft_flags(const char c, t_flags *flags, va_list args)
+static t_flags	*ft_set_flags(const char c, t_flags *flags, va_list args)
 {
 	if (c == '*')
 		flags = flag_width(args, flags);
@@ -43,7 +43,7 @@ int	parse_flags(const char *format, int i, t_flags *flags, va_list args)
 		}
 		if (format[i] == '.')
 			i = ft_dot(format, ++i, flags, args);
-		flags = ft_flags(format[i], flags, args);
+		flags = ft_set_flags(format[i], flags, args);
 		if (checkinlist(format[i], SPECIFIC))
 		{
 			flags->type = format[i];
@@ -54,18 +54,17 @@ int	parse_flags(const char *format, int i, t_flags *flags, va_list args)
 	return (i);
 }
 
-
 int	ft_cspdu(int c, t_flags *flags, va_list args)
 {
 	int	length;
 
 	length = 0;
-    if (flags->dot >= 0)
-        flags->zero = 0;
+	if (flags->dot >= 0)
+		flags->zero = 0;
 	if (c == 'c')
 		length = ft_char(va_arg(args, int), flags);
 	if (c == 's')
-	    length = ft_string(va_arg(args, char *), flags);
+		length = ft_string(va_arg(args, char *), flags);
 	else if (c == 'p')
 		length = ft_pointer(va_arg(args, unsigned long long), flags);
 	else if (c == 'd' || c == 'i')
@@ -75,7 +74,7 @@ int	ft_cspdu(int c, t_flags *flags, va_list args)
 	else if (c == 'x')
 		length = length + ft_hex_lowup(va_arg(args, unsigned int), 1, flags);
 	else if (c == 'X')
-		length = length +  ft_hex_lowup(va_arg(args, unsigned int), 0, flags); 
+		length = length + ft_hex_lowup(va_arg(args, unsigned int), 0, flags);
 	else if (c == '%')
 		length = length + ft_percent(flags);
 	return (length);
